@@ -5,7 +5,8 @@ test('renders the component CardActivity', async () => {
   const activityData = {
     title: "Social",
     current: 5,
-    previous: 10
+    previous: 10,
+    period: "Last Week"
   };
 
   render(<CardActivity data={ activityData }/>);
