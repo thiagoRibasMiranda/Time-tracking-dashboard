@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import CardUser from './components/CardUser/CardUser';
+import CardActivity from './components/CardActivity/CardActivity';
 
 function App() {
+
+  const userName = "Thiago Ribas"
+  const activityData = {
+    title: "Social",
+    current: 5,
+    previous: 10,
+    period: "Last Week"
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <CardUser name={userName} data-testid="card-user" />
+      <CardActivity activityData={activityData} data-testid="card-activities" />
     </div>
   );
 }
