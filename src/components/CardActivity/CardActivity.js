@@ -1,17 +1,16 @@
 // import './CardActivity.css';
 
 function CardActivity(data) {
-
-  const { title, current, previous, period } = data.activityData
+  const { current, previous } = data.time
 
   return (
     <div>
       <div>
-        <p>{title}</p>
+        <p>{data.title}</p>
         <p>{current}hrs</p>
       </div>
       <div>
-        <p>{period} - {previous}hrs</p>
+        <p>{data.period} - {previous}hrs</p>
       </div>
     </div>
   );
