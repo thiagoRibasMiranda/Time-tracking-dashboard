@@ -8,6 +8,7 @@ function App() {
   const [data, setData] = useState([]);
   const [time, setTime] = useState("");
   const [period, setPeriod] = useState("");
+  
   const getData = () => {
     fetch('./data.json')
       .then((response) => response.json())
@@ -15,6 +16,15 @@ function App() {
         setData(json)
       });
   }
+
+  const handleEvent = (e) => {
+    const { name } = e.target 
+    setTime(name)
+    if (name === "daily") setPeriod("Yesterday")
+    if (name === "weekly") setPeriod("Last Week")
+    if (name === "monthly") setPeriod("Last Month")
+  }
+
   useEffect(() => {
     getData()
     setTime("weekly")
@@ -23,7 +33,7 @@ function App() {
   
   return (
     <div>
-      <CardUser name={userName} data-testid="card-user" />
+      <CardUser name={userName} onPress={handleEvent} data-testid="card-user" />
       {
         data.map((d, index) => 
           <CardActivity

@@ -1,16 +1,16 @@
 // import './CardUser.css';
 
-function CardUser(data) {
+function CardUser({ name, onPress }) {
   return (
     <div>
       <div>
         <p>Report for</p>
-        <p>{data.name}</p>
+        <p>{name}</p>
       </div>
       <div>
-        <button>Daily</button>
-        <button>Weekly</button>
-        <button>Monthly</button>
+        <button type="button" name="daily" onClick={onPress}>Daily</button>
+        <button type="button" name="weekly" onClick={onPress}>Weekly</button>
+        <button type="button" name="monthly" onClick={onPress}>Monthly</button>
       </div>
     </div>
   );
