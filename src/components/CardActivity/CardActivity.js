@@ -1,10 +1,10 @@
-// import './CardActivity.css';
+import './CardActivity.css';
 
 function CardActivity(data) {
   const { current, previous } = data.time
 
   return (
-    <div>
+    <div className='CardActivity'>
       <div>
         <p>{data.title}</p>
         <p>{current}hrs</p>
