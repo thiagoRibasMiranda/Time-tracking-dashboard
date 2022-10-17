@@ -4,7 +4,7 @@ import CardUser from './components/CardUser/CardUser';
 import CardActivity from './components/CardActivity/CardActivity';
 
 function App() {
-  const [userName] = useState("Thiago Ribas")
+  const [userName] = useState("Jeremy Robson")
   const [data, setData] = useState([]);
   const [time, setTime] = useState("");
   const [period, setPeriod] = useState("");
@@ -32,7 +32,7 @@ function App() {
   }, [])
   
   return (
-    <div>
+    <div className='App'>
       <CardUser name={userName} onPress={handleEvent} data-testid="card-user" />
       {
         data.map((d, index) => 
