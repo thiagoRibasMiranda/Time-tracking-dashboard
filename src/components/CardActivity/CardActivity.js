@@ -6,17 +6,20 @@ import Icon from "./icon"
 function CardActivity(data) {
   const { current, previous } = data.time
   const { title } = data
+  const na = title.replace(/\s/g, "");
 
   return (
-    <div className='CardActivity'>
-      <Icon title={title}/>
+    <div className={`CardActivity ${na}`}>
+      <div className='Icon'>
+        <Icon title={title}/>
+      </div>
       <div className='ActivityData'>
-        <div>
+        <div className='Title'>
           <p>{title}</p>
           <IconEllipsis className='IconEllipsis' fill="#BBC0FF" />
         </div>
-        <div>
-          <p>{current}hrs</p>
+        <div className='Times'>
+          <p className='Time'>{current}hrs</p>
           <p>{data.period} - {previous}hrs</p>
         </div>
       </div>
