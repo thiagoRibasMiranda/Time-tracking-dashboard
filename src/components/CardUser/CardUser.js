@@ -8,7 +8,7 @@ function CardUser({ name, onPress }) {
         <img src={userImg} alt="UserImg"/>
         <div>
           <p>Report for</p>
-          <h1>{name}</h1>
+          <h2 className='UserName'>{name}</h2>
         </div>
       </div>
       <div className='MenuButtons'>
