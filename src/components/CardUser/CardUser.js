@@ -3,7 +3,7 @@ import userImg from './images/image-jeremy.png'
 
 function CardUser({ name, onPress }) {
   return (
-    <div className='CardUser'>
+    <div className='CardUser' data-testid="card-user">
       <div className='UserData'>
         <img src={userImg} alt="UserImg"/>
         <div>

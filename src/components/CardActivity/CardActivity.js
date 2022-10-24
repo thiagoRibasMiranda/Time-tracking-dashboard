@@ -9,7 +9,7 @@ function CardActivity(data) {
   const na = title.replace(/\s/g, "");
 
   return (
-    <div className={`CardActivity ${na}`}>
+    <div className={`CardActivity ${na}`} data-testid="card-activity">
       <div className='Icon'>
         <Icon title={title}/>
       </div>
