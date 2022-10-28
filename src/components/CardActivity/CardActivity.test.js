@@ -4,12 +4,16 @@ import CardActivity from './CardActivity';
 test('renders the component CardActivity', async () => {
   const activityData = {
     title: "Social",
-    current: 5,
-    previous: 10,
+    time: {
+      current: 5,
+      previous: 10,
+    },
     period: "Last Week"
   };
 
-  render(<CardActivity data={ activityData }/>);
+  render(<CardActivity title={activityData.title}
+    time={activityData.time}
+    period = {activityData.period}/>);
 
   const titleActivity = screen.getByText(/Social/);
   expect(titleActivity).toBeInTheDocument();
