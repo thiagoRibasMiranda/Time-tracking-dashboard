@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from './App';
 
-test('renders the landing page', async () => {
+test('renders the landing page and test the functionality', async () => {
 
-  const mockdata = [
+  const mockData = [
     {
       title: "Work",
       timeframes: {
@@ -108,30 +109,29 @@ test('renders the landing page', async () => {
     }
   ];
 
+  const user = userEvent
+
   jest.spyOn(global, "fetch").mockImplementation(() =>
     Promise.resolve({
-      json: () => Promise.resolve(mockdata)
+      json: () => Promise.resolve(mockData)
     })
   );
 
   render(<App />);
   
-  const userCard = await screen.findByTestId("card-user")
+  const userCard = await screen.findByTestId("card-user");
   expect(userCard).toBeInTheDocument();
-  const activiesCards = await screen.findAllByTestId("card-activity")
+
+  const activiesCards = await screen.findAllByTestId("card-activity");
   expect(activiesCards).toHaveLength(6);
+
+  const lastWeekText = screen.getAllByText(/Last Week/i);
+  expect(lastWeekText).toHaveLength(6);
+
+  await user.click(screen.getByRole('button', {name : /daily/i}));
+  
+  const yesterdayText = screen.getAllByText(/Yesterday/i);
+  expect(yesterdayText).toHaveLength(6);
 
   global.fetch.mockRestore();
 });
-
-
-// test('renders learn react link', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
-
-// expect(screen.getByRole("heading")).toHaveTextContent(/Doggy Directory/);
-// expect(screen.getByRole("combobox")).toHaveDisplayValue("Select a breed");
-// expect(screen.getByRole("button", { name: "Search" })).toBeDisabled();
-// expect(screen.getByRole("img")).toBeInTheDocument();
