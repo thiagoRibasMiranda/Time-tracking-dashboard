@@ -15,8 +15,8 @@ const iconTypes = {
 };
 
 const IconComponent = (title) => {
-  const na = title.title.replace(/\s/g, "");
-  let Icon = iconTypes[na];
+  const formattedTitle = title.title.replace(/\s/g, "");
+  let Icon = iconTypes[formattedTitle];
   return <Icon />;
 };
 

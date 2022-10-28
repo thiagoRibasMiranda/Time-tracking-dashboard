@@ -5,11 +5,11 @@ import Icon from "./icon"
 
 function CardActivity(data) {
   const { current, previous } = data.time
-  const { title } = data
-  const na = title.replace(/\s/g, "");
+  const { title, period } = data
+  const formattedTitle = title.replace(/\s/g, "");
 
   return (
-    <div className={`CardActivity ${na}`} data-testid="card-activity">
+    <div className={`CardActivity ${formattedTitle}`} data-testid="card-activity">
       <div className='Icon'>
         <Icon title={title}/>
       </div>
@@ -20,7 +20,7 @@ function CardActivity(data) {
         </div>
         <div className='Times'>
           <p className='Time'>{current}hrs</p>
-          <p>{data.period} - {previous}hrs</p>
+          <p>{period} - {previous}hrs</p>
         </div>
       </div>
     </div>
