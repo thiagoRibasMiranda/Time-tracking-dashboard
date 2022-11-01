@@ -34,17 +34,19 @@ function App() {
   return (
     <div className='App'>
       <CardUser name={userName} onPress={handleEvent} data-testid="card-user" />
-      {
-        data.map((d, index) => 
-          <CardActivity
-            title={d.title}
-            time={d.timeframes[time]}
-            period = {period}
-            data-testid="card-activities"
-            key={index}
-          />
-        )
-      }
+      <div className='CardsActivies'>
+        {
+          data.map((d, index) => 
+            <CardActivity
+              title={d.title}
+              time={d.timeframes[time]}
+              period = {period}
+              data-testid="card-activities"
+              key={index}
+            />
+          )
+        }
+      </div>
     </div>
   );
 }
