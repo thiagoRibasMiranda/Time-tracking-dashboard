@@ -1,8 +1,8 @@
 .CardUser {
   display: flex;
   flex-direction: column;
-  width: 85%;
-  height: 26vh;
+  width: clamp(420px, 85%, 600px);
+  height: 180px;
   background-color: #1D204B;
   border-radius: 15px;
 }
@@ -11,19 +11,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 70%;
   border-radius: 15px;
-  justify-content: center;
   background-color: #5746EA;
   color: hsl(236, 100%, 87%);
 }
 
 .UserName{
-  /* color: ; */
   font-weight: 300;
   color: #FBFDFF;
-
 }
 
 .MenuButtons {
@@ -38,7 +36,7 @@
 
 img {
   margin-right: 5%;
-  width: 18%;
+  width: clamp(70px, 18%, 90px);
   border: 3px solid white;
   border-radius: 3000px;
 }
@@ -53,4 +51,41 @@ button {
 
 button:hover {
   color: #FBFDFF;
+}
+
+@media screen and (min-width: 1200px) {
+  .CardUser {
+    width: 275px;
+    height: 450px;
+  }
+
+  .UserData {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 12px;
+  }
+
+  .UserData > img {
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .UserData > div {
+    margin-left: 10px;
+  }
+
+  .MenuButtons {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    margin: 0%;
+    margin-top: 5px;
+  }
+
+  .UserName{
+    font-size: 35px;
+  }
+
 }
