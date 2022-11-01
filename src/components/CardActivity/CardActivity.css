@@ -1,8 +1,8 @@
 .CardActivity {
   display: flex;
   flex-direction: column;
-  width: 85%;
-  height: 22vh;
+  width: clamp(420px, 85%, 600px);
+  height: 180px;
   border-radius: 15px;
 }
 
@@ -33,9 +33,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  /* height: 30%; */
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 5px;
+  margin-bottom: 5px;
   color: #FBFDFF;
   font-weight: 500;
 }
@@ -47,8 +46,6 @@
   align-items: center;
   width: 100%;
   color: #6D6EAF;
-  /* height: 30%;
-  margin-right: 4%; */
 }
 
 .Time {
@@ -85,14 +82,11 @@
   background-color: hsl(43, 84%, 65%);
 }
 
-/* 
-.ActivityData {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  height: 70%;
-  border-radius: 15px;
-  justify-content: center;
-  background-color: #5746EA;
-} */
+@media screen and (min-width: 1200px) {
+
+  .CardActivity {
+    width: 275px;
+    height: 200px;
+  }
+
+}
