@@ -33,10 +33,14 @@
     justify-content: center;
     height: 100vh;
     padding: 50px;
+    padding-left: 150px;
+    gap: 0px;
   }
 
   .CardsActivies {
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 30px;
+    margin-left: -45px;
   }
 }
