@@ -85,8 +85,39 @@
 @media screen and (min-width: 1200px) {
 
   .CardActivity {
-    width: 275px;
-    height: 200px;
+    width: 250px;
+    height: 240px;
+  }
+
+  .ActivityData {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+
+  .Icon {
+    display: flex;
+    justify-content: flex-end;
+    height: 18%;
+    margin-right: 4%;
+  }
+
+  .Times {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 14px;
+  }
+
+  .Time {
+    font-size: 54px;
+    font-weight: 300;
+    color: #FBFDFF;
+  }
+
+  .Title {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    color: #FBFDFF;
+    font-weight: 500;
   }
 
 }
