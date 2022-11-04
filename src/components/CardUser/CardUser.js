@@ -1,16 +1,20 @@
-// import './CardUser.css';
+import './CardUser.css';
+import userImg from './images/image-jeremy.png'
 
-function CardUser(data) {
+function CardUser({ name, onPress }) {
   return (
-    <div>
-      <div>
-        <p>Report for</p>
-        <p>{data.name}</p>
+    <div className='CardUser' data-testid="card-user">
+      <div className='UserData'>
+        <img src={userImg} alt="UserImg"/>
+        <div>
+          <p>Report for</p>
+          <h2 className='UserName'>{name}</h2>
+        </div>
       </div>
-      <div>
-        <button>Daily</button>
-        <button>Weekly</button>
-        <button>Monthly</button>
+      <div className='MenuButtons'>
+        <button type="button" name="daily" onClick={onPress}>Daily</button>
+        <button type="button" name="weekly" onClick={onPress}>Weekly</button>
+        <button type="button" name="monthly" onClick={onPress}>Monthly</button>
       </div>
     </div>
   );

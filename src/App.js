@@ -1,21 +1,52 @@
 import './App.css';
+import { useState, useEffect } from 'react';
 import CardUser from './components/CardUser/CardUser';
 import CardActivity from './components/CardActivity/CardActivity';
 
 function App() {
+  const [userName] = useState("Jeremy Robson")
+  const [data, setData] = useState([]);
+  const [time, setTime] = useState("");
+  const [period, setPeriod] = useState("");
+  
+  const getData = () => {
+    fetch('./data.json')
+      .then((response) => response.json())
+      .then((json) => {
+        setData(json)
+      });
+  }
 
-  const userName = "Thiago Ribas"
-  const activityData = {
-    title: "Social",
-    current: 5,
-    previous: 10,
-    period: "Last Week"
-  };
+  const handleEvent = (e) => {
+    const { name } = e.target 
+    setTime(name)
+    if (name === "daily") setPeriod("Yesterday")
+    if (name === "weekly") setPeriod("Last Week")
+    if (name === "monthly") setPeriod("Last Month")
+  }
 
+  useEffect(() => {
+    getData()
+    setTime("weekly")
+    setPeriod("Last Week")
+  }, [])
+  
   return (
-    <div>
-      <CardUser name={userName} data-testid="card-user" />
-      <CardActivity activityData={activityData} data-testid="card-activities" />
+    <div className='App'>
+      <CardUser name={userName} onPress={handleEvent} data-testid="card-user" />
+      <div className='CardsActivies'>
+        {
+          data.map((d, index) => 
+            <CardActivity
+              title={d.title}
+              time={d.timeframes[time]}
+              period = {period}
+              data-testid="card-activities"
+              key={index}
+            />
+          )
+        }
+      </div>
     </div>
   );
 }
